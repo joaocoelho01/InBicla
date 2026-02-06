@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InBicla - Projetos de Mobilidade</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">InBicla</div>
+        <ul class="menu">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#orcamento">Orçamento</a></li>
+            <li><a href="#contactos">Contactos</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Mobilidade com Design.</h1>
+            <p>Criamos soluções únicas sobre rodas.</p>
+            <a href="#projetos" class="cta-button">Ver Projetos</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="content-section">
+        <h2>Sobre a InBicla</h2>
+        <p>Somos apaixonados por bicicletas e mobilidade urbana. A nossa missão é transformar a forma como as pessoas se movem na cidade, criando projetos personalizados e sustentáveis.</p>
+    </section>
+
+    <section id="projetos" class="content-section bg-light">
+        <h2>Os Nossos Projetos</h2>
+        <div class="portfolio-grid">
+            <div class="projeto-card">
+                <div class="placeholder-img">FOTO 1</div>
+                <h3>Restauro Vintage</h3>
+                <p>Recuperação total de uma clássica de 1980.</p>
+            </div>
+            <div class="projeto-card">
+                <div class="placeholder-img">FOTO 2</div>
+                <h3>E-Bike Custom</h3>
+                <p>Adaptação elétrica para uso urbano intensivo.</p>
+            </div>
+            <div class="projeto-card">
+                <div class="placeholder-img">FOTO 3</div>
+                <h3>Cargo Bike</h3>
+                <p>Solução logística para entregas locais.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+        <button id="btnAbrirModal" class="cta-button">Pedir Orçamento Agora</button>
+    </div>
+</section>
+
+<div id="modalOrcamento" class="modal">
+        <div class="modal-content">
+            <span class="fechar">&times;</span>
+            
+            <div id="step-selecao">
+                <h2>Escolha o Serviço</h2>
+                <p>Selecione uma opção para avançar. (Caução: 50€)</p>
+                
+                <div class="opcoes-grid">
+                    <div class="opcao-card" onclick="mostrarFormulario('Restauro Completo')">
+                        <h3>Restauro</h3>
+                        <p class="preco">Caução 50€</p>
+                        <p class="desc">Bicicletas antigas</p>
+                    </div>
+                    <div class="opcao-card" onclick="mostrarFormulario('Personalização')">
+                        <h3>Custom</h3>
+                        <p class="preco">Caução 50€</p>
+                        <p class="desc">Pintura e Peças</p>
+                    </div>
+                    <div class="opcao-card" onclick="mostrarFormulario('Reparação Geral')">
+                        <h3>Reparação</h3>
+                        <p class="preco">Caução 50€</p>
+                        <p class="desc">Mecânica Geral</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step-formulario" style="display: none;">
+                <h2 id="titulo-servico">Preencher Dados</h2>
+                <p>Vamos agendar a receção da sua bicicleta.</p>
+                
+                <form class="form-modal">
+                    <input type="hidden" id="servico-selecionado">
+                    
+                    <label>Nome:</label>
+                    <input type="text" placeholder="O seu nome" required>
+                    
+                    <label>Email:</label>
+                    <input type="email" placeholder="O seu email" required>
+
+                    <label>Modelo da Bicicleta:</label>
+                    <input type="text" placeholder="Marca e Modelo" required>
+
+                    <label>Data Preferida:</label>
+                    <input type="date" id="dataEntrega" required>
+
+                    <label>Fotos (Opcional):</label>
+                    <input type="file" accept="image/*" multiple>
+
+                    <label>Detalhes:</label>
+                    <textarea rows="3" placeholder="Descreva o que precisa..."></textarea>
+
+                    <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">* Ao enviar, entraremos em contacto para o pagamento da caução.</p>
+                    
+                    <button type="submit" class="btn-enviar">Confirmar Pedido</button>
+                    <button type="button" class="btn-voltar" onclick="voltarSelecao()">Escolher outro serviço</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </section>
+
+<section id="blog" class="content-section">
+        <h2>O Nosso Blog</h2>
+        <p>Notícias, dicas de manutenção e rotas imperdíveis.</p>
+        
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=500')"></div>
+                <div class="blog-content">
+                    <span class="blog-tag">Dicas</span>
+                    <h3>Como manter a corrente impecável</h3>
+                    <p>3 passos simples para aumentar a vida útil da tua bicicleta.</p>
+                    <a href="#" class="ler-mais">Ler artigo &rarr;</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=500')"></div>
+                <div class="blog-content">
+                    <span class="blog-tag">Rotas</span>
+                    <h3>As melhores ciclovias do Porto</h3>
+                    <p>Descobre os caminhos secretos à beira-rio.</p>
+                    <a href="#" class="ler-mais">Ler artigo &rarr;</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1485965120184-e224f7a1d7f6?w=500')"></div>
+                <div class="blog-content">
+                    <span class="blog-tag">Lifestyle</span>
+                    <h3>Bike to Work: Vantagens</h3>
+                    <p>Porque deves deixar o carro em casa amanhã.</p>
+                    <a href="#" class="ler-mais">Ler artigo &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contactos" class="content-section">
+        <div class="contact-wrapper">
+            
+            <div class="contact-info-box">
+                <h2>Onde Estamos</h2>
+                <p>Venha visitar a nossa oficina no coração do Santo Tirso.</p>
+                
+                <div class="info-item">
+                    <h3>📍 Morada</h3>
+                    <p>Rua da Liberdade, 123<br>4000-000 Porto, Portugal</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>📞 Contacto Direto</h3>
+                    <p><strong>Tel:</strong> +351 936 794 266</p>
+                    <p><strong>Email:</strong> ola@inbicla.pt</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>🕒 Horário de Funcionamento</h3>
+                    <p>Segunda a Sexta: 09:30 - 19:00</p>
+                    <p>Sábado: 10:00 - 13:00</p>
+                    <p style="color: #e74c3c;">Domingo: Fechado (a pedalar!)</p>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47976.257270418595!2d-8.531570434570309!3d41.275871335023865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd248ac75aa87cfb%3A0x69bda4cc2b2adf9e!2siNBiCLA!5e0!3m2!1sen!2spt!4v1770389831181!5m2!1sen!2spt" 
+                width="600" height="450" style="border:0;" 
+                allowfullscreen="" loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-pro">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>InBicla.</h3>
+                <p>Redefinimos a mobilidade urbana com estilo e sustentabilidade. Cada projeto é único, tal como tu.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Explorar</h4>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Termos e Condições</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Livro de Reclamações</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Segue-nos</h4>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 InBicla. Feito no Porto 🇵🇹</p>
+        </div>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
